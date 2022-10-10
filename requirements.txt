@@ -1,0 +1,14 @@
+#for api
+fastapi
+uvicorn
+
+
+#forDB
+SQLAlchemy
+psycopg2-binary
+
+#forHasing
+passlib[bcrypt] 
+
+#for Security
+python-jose
