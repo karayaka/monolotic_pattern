@@ -10,5 +10,4 @@ class Hasher():
 
     @staticmethod
     def get_password_hash(password):
-        print('hassPasword')
         return pwd_context.hash(password)

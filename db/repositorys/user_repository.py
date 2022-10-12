@@ -1,10 +1,11 @@
+from typing import List
 from unicodedata import name
-
 from sqlalchemy import null
 from schemas.users import UserCreate
 from sqlalchemy.orm import Session
 from ..models.user import User
 from core.hashing import Hasher
+from schemas.users import BaseUser
 
 
 
@@ -20,10 +21,12 @@ def create_user_new(db:Session, user:UserCreate):
     db.refresh(usr)
     return usr
 
-def get_user_by_username(db:Session,user_name:str):
+def get_user_by_username(db:Session,user_name:str)->User:
     user= db.query(User).filter(User.user_name==user_name).first()
     if user:
         return user
     return null
+def get_users(db:Session)->list[User]:
+    return db.query(User).all()
 
 
